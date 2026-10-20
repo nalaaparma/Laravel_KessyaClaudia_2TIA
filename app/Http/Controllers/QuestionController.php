@@ -16,21 +16,16 @@ class QuestionController extends Controller
         //
     }
 
+    public function store(Request $request)
+    {
+        //dd($request->all());
 
-public function store(Request $request)
-{
-    $request->validate([
-        'nama' => 'required|min:5',
-        'email' => ['required', 'email'],
-        'pertanyaan' => 'required|min:10|max:300',
-    ]);
+        $data['nama']       = $request->nama;
+        $data['email']      = $request->email;
+        $data['pertanyaan'] = $request->pertanyaan;
 
-    $data['nama'] = $request->nama;
-    $data['email'] = $request->email;
-    $data['pertanyaan'] = $request->pertanyaan;
-
-    return view('home-question-respon', $data);
-}
+        return view('home-question-respon', $data);
+    }
 
     public function show(string $id)
     {
