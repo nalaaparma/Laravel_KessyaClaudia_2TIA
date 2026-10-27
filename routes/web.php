@@ -1,12 +1,11 @@
-
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PelangganController;
-
+use App\Http\Controllers\QuestionController;
+use Illuminate\Support\Facades\Route;
 
 // Halaman utama
 Route::get('/', function () {
@@ -33,4 +32,13 @@ Route::get('/home-question-response', function () {
 // Halaman Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
+
+// CRUD Pelanggan
 Route::resource('pelanggan', PelangganController::class);
+
+// Halaman CV
+Route::get('/cv', [BiodataController::class, 'index'])
+    ->name('cv.index');
+
+// CRUD Biodata
+Route::resource('biodata', BiodataController::class);
