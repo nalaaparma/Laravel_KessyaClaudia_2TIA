@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 // Halaman utama
 Route::get('/', function () {
@@ -42,3 +43,4 @@ Route::get('/cv', [BiodataController::class, 'index'])
 
 // CRUD Biodata
 Route::resource('biodata', BiodataController::class);
+Route::resource('user', UserController::class);
